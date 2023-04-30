@@ -8,13 +8,14 @@ services:
       - 3000:3000
     depends_on:
       - decide
+      - inspire
 
   decide:
     build: ./team-decide
     volumes:
       - ./run.sh:/bin/run.sh
       - ./team-decide/games:/app/games
-      - ./team-decide/static:/app/static
+      - ./team-decide/decide:/app/decide
       - ./team-decide/package.json:/app/package.json
       - ./team-decide/pnpm-lock.yaml:/app/pnpm-lock.yaml
     working_dir: /app
@@ -28,7 +29,7 @@ services:
       - ./run.sh:/bin/run.sh
       - ./team-inspire/fragment:/app/fragment
       - ./team-inspire/recommendations:/app/recommendations
-      - ./team-inspire/static:/app/static
+      - ./team-inspire/inspire:/app/inspire
       - ./team-inspire/package.json:/app/package.json
       - ./team-inspire/pnpm-lock.yaml:/app/pnpm-lock.yaml
     working_dir: /app
