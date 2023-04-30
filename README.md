@@ -8,3 +8,5 @@ nginxでリバースプロキシしてdecieとinspireを振り分ける版
 git submodule --init
 docker compose up
 ```
+
+http://localhost:3000/decide を開く
