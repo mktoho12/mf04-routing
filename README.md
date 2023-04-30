@@ -9,4 +9,4 @@ git submodule --init
 docker compose up
 ```
 
-http://localhost:3000/decide を開く
+http://localhost:3000/games/forspoken を開く
