@@ -1,3 +1,6 @@
 [submodule "team-decide"]
 	path = team-decide
 	url = https://github.com/mktoho12/mf04-routing-decide
+[submodule "team-inspire"]
+	path = team-inspire
+	url = https://github.com/mktoho12/mf04-routing-inspire
