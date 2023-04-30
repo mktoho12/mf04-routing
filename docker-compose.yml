@@ -1,7 +1,37 @@
 services:
+
   web:
     image: nginx:1.23.4
     volumes:
       - ./nginx/proxy.conf:/etc/nginx/conf.d/proxy.conf
     ports:
       - 3000:3000
+    depends_on:
+      - decide
+
+  decide:
+    build: ./team-decide
+    volumes:
+      - ./run.sh:/bin/run.sh
+      - ./team-decide/games:/app/games
+      - ./team-decide/static:/app/static
+      - ./team-decide/package.json:/app/package.json
+      - ./team-decide/pnpm-lock.yaml:/app/pnpm-lock.yaml
+    working_dir: /app
+    command: run.sh
+    expose:
+      - 3001
+
+  inspire:
+    build: ./team-inspire
+    volumes:
+      - ./run.sh:/bin/run.sh
+      - ./team-inspire/fragment:/app/fragment
+      - ./team-inspire/recommendations:/app/recommendations
+      - ./team-inspire/static:/app/static
+      - ./team-inspire/package.json:/app/package.json
+      - ./team-inspire/pnpm-lock.yaml:/app/pnpm-lock.yaml
+    working_dir: /app
+    command: run.sh
+    expose:
+      - 3002
